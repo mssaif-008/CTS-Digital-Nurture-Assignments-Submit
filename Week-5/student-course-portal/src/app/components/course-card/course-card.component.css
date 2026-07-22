@@ -1,0 +1,74 @@
+﻿.course-card {
+  background: #fff;
+  border: 1px solid #d9e1ea;
+  border-left: 6px solid #7b8494;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-height: 210px;
+  padding: 18px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.course-card:hover {
+  box-shadow: 0 10px 26px rgba(20, 31, 48, 0.12);
+  transform: translateY(-2px);
+}
+
+.course-card__topline,
+.actions {
+  align-items: center;
+  display: flex;
+  gap: 10px;
+  justify-content: space-between;
+}
+
+.code {
+  color: #5b6575;
+  font-weight: 700;
+}
+
+h3 {
+  color: #1d2735;
+  font-size: 1.15rem;
+  margin: 0;
+}
+
+p {
+  color: #4c5868;
+  margin: 0;
+}
+
+.badge {
+  border-radius: 999px;
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 4px 8px;
+}
+
+.badge--passed { background: #1f9d55; }
+.badge--failed { background: #d64545; }
+.badge--pending { background: #7b8494; }
+
+.card--enrolled { outline: 2px solid #2f80ed; }
+.card--full { background: #fbfdff; }
+.expanded { min-height: 265px; }
+.details { line-height: 1.45; }
+
+button {
+  background: #edf2f7;
+  border: 0;
+  border-radius: 6px;
+  color: #1d2735;
+  cursor: pointer;
+  font-weight: 700;
+  padding: 9px 12px;
+}
+
+button.primary {
+  background: #2f80ed;
+  color: #fff;
+}

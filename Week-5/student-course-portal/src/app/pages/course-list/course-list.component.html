@@ -1,0 +1,56 @@
+﻿<section class="page courses">
+  <div class="page-heading">
+    <div>
+      <h1>Course Listing</h1>
+      <p>Choose a course, view details, and request enrollment.</p>
+    </div>
+    <label>
+      <span>Search</span>
+      <input [(ngModel)]="searchTerm" (ngModelChange)="updateSearch()" placeholder="Course name or code" />
+    </label>
+  </div>
+
+  @if (isLoading || (loading$ | async)) {
+    <p class="status">Loading courses...</p>
+  }
+
+  @if (error$ | async; as errorMessage) {
+    <p class="error">{{ errorMessage }}</p>
+  }
+
+  @if (filteredCourses$ | async; as courses) {
+    <ng-container *ngIf="courses.length > 0; else noCourses">
+      <div class="course-grid">
+        <app-course-card
+          *ngFor="let course of courses; let i = index; trackBy: trackByCourseId"
+          appHighlight="lightblue"
+          [course]="course"
+          [enrolled]="((enrolledIds$ | async) || []).includes(course.id)"
+          (enrollRequested)="onEnroll($event)"
+          (cardSelected)="openCourse($event)"
+        />
+      </div>
+    </ng-container>
+  }
+
+  <ng-template #noCourses>
+    <p class="status">No courses available.</p>
+  </ng-template>
+
+  <p *ngIf="selectedCourseId" class="selected">Selected course ID: {{ selectedCourseId }}</p>
+
+  @if (enrolledStudents$ | async; as students) {
+    <section class="students">
+      <h2>Students enrolled in selected course</h2>
+      @if (students.length) {
+        <ul>
+          @for (student of students; track student.id) {
+            <li>{{ student.name }} - {{ student.email }}</li>
+          }
+        </ul>
+      } @else {
+        <p>No students are currently enrolled in this course.</p>
+      }
+    </section>
+  }
+</section>

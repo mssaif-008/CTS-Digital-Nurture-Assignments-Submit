@@ -1,0 +1,13 @@
+﻿.page { padding: 32px; }
+.form-heading { align-items: center; display: flex; justify-content: space-between; max-width: 620px; }
+h1 { color: #18202f; margin-top: 0; }
+a { color: #2f80ed; font-weight: 700; }
+form { background: #fff; border: 1px solid #d9e1ea; border-radius: 8px; display: grid; gap: 16px; max-width: 620px; padding: 22px; }
+label { display: grid; gap: 6px; }
+input, select { border: 1px solid #b8c3d1; border-radius: 6px; font: inherit; padding: 10px 12px; }
+.checkbox { align-items: center; display: flex; }
+.checkbox input { width: auto; }
+small { color: #b83232; }
+button { background: #2f80ed; border: 0; border-radius: 6px; color: #fff; cursor: pointer; font-weight: 700; padding: 12px 16px; }
+button:disabled { background: #9da8b8; cursor: not-allowed; }
+.message { color: #1f7a4d; font-weight: 700; }

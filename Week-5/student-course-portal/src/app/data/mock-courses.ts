@@ -1,0 +1,9 @@
+﻿import { Course } from '../models/course';
+
+export const MOCK_COURSES: Course[] = [
+  { id: 1, name: 'Data Structures', code: 'CS101', credits: 4, gradeStatus: 'passed', description: 'Arrays, trees, graphs, and algorithmic thinking.', instructor: 'Dr. Meera Iyer' },
+  { id: 2, name: 'Angular Fundamentals', code: 'WEB201', credits: 3, gradeStatus: 'pending', description: 'Components, templates, binding, services, and routing.', instructor: 'Prof. Arjun Rao' },
+  { id: 3, name: 'Database Systems', code: 'DB301', credits: 4, gradeStatus: 'passed', description: 'Relational modeling, SQL, transactions, and indexing.', instructor: 'Dr. Kavya Menon' },
+  { id: 4, name: 'Cloud Foundations', code: 'CL210', credits: 2, gradeStatus: 'pending', description: 'Cloud deployment models, storage, networking, and observability.', instructor: 'Prof. Neil D\'Souza' },
+  { id: 5, name: 'Operating Systems', code: 'CS220', credits: 3, gradeStatus: 'failed', description: 'Processes, memory management, concurrency, and file systems.', instructor: 'Dr. Priya Shah' }
+];

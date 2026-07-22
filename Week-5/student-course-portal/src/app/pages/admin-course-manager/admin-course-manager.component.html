@@ -1,0 +1,49 @@
+﻿<section class="page admin">
+  <h1>Course Admin</h1>
+  <p>Create, update, or delete a course against the JSON Server API.</p>
+
+  <form>
+    <label>
+      <span>ID</span>
+      <input type="number" name="id" [(ngModel)]="course.id" />
+    </label>
+    <label>
+      <span>Name</span>
+      <input name="name" [(ngModel)]="course.name" />
+    </label>
+    <label>
+      <span>Code</span>
+      <input name="code" [(ngModel)]="course.code" />
+    </label>
+    <label>
+      <span>Credits</span>
+      <input type="number" name="credits" [(ngModel)]="course.credits" />
+    </label>
+    <label>
+      <span>Status</span>
+      <select name="gradeStatus" [(ngModel)]="course.gradeStatus">
+        @for (status of gradeStatuses; track status) {
+          <option [value]="status">{{ status }}</option>
+        }
+      </select>
+    </label>
+    <label>
+      <span>Instructor</span>
+      <input name="instructor" [(ngModel)]="course.instructor" />
+    </label>
+    <label class="wide">
+      <span>Description</span>
+      <textarea name="description" [(ngModel)]="course.description"></textarea>
+    </label>
+  </form>
+
+  <div class="actions">
+    <button type="button" (click)="createCourse()">Create</button>
+    <button type="button" (click)="updateCourse()">Update</button>
+    <button type="button" class="danger" (click)="deleteCourse()">Delete</button>
+  </div>
+
+  @if (message) {
+    <p class="message">{{ message }}</p>
+  }
+</section>

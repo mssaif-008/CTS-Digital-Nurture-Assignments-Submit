@@ -1,0 +1,23 @@
+﻿<section class="page home">
+  <div class="hero">
+    <h1>{{ portalName }}</h1>
+    <p>Browse courses, request enrollment, review grades, and keep your academic plan in one place.</p>
+    <button [disabled]="!isPortalActive" (click)="onEnrollClick()">Enroll Now</button>
+    @if (message) {
+      <p class="message">{{ message }}</p>
+    }
+  </div>
+
+  <div class="stats" aria-label="Portal statistics">
+    <div><strong>{{ coursesAvailable }}</strong><span>Courses Available</span></div>
+    <div><strong>3</strong><span>Enrolled</span></div>
+    <div><strong>3.8</strong><span>GPA</span></div>
+  </div>
+
+  <label class="search">
+    <span>Search courses</span>
+    <!-- [property] sends data one way from component to DOM; [(ngModel)] keeps DOM and component in sync both ways. -->
+    <input [(ngModel)]="searchTerm" placeholder="Angular, database, cloud" />
+  </label>
+  <p>Searching for: {{ searchTerm }}</p>
+</section>

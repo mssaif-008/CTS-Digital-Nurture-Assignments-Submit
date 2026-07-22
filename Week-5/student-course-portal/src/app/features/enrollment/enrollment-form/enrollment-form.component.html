@@ -1,0 +1,42 @@
+﻿<section class="page form-page">
+  <div class="form-heading">
+    <h1>Enrollment Request</h1>
+    <a routerLink="/enroll/reactive">Reactive version</a>
+  </div>
+
+  <form #enrollForm="ngForm" (ngSubmit)="onSubmit(enrollForm)" novalidate>
+    <label>
+      <span>Student name</span>
+      <input name="studentName" [(ngModel)]="model.studentName" required minlength="3" #studentName="ngModel" />
+      @if (studentName.invalid && studentName.touched) { <small>Name must be at least 3 characters.</small> }
+    </label>
+
+    <label>
+      <span>Email</span>
+      <input type="email" name="studentEmail" [(ngModel)]="model.studentEmail" required email #studentEmail="ngModel" />
+      @if (studentEmail.invalid && studentEmail.touched) { <small>Enter a valid email address.</small> }
+    </label>
+
+    <label>
+      <span>Course ID</span>
+      <input type="number" name="courseId" [(ngModel)]="model.courseId" required min="1" />
+    </label>
+
+    <label>
+      <span>Preferred semester</span>
+      <select name="preferredSemester" [(ngModel)]="model.preferredSemester" required>
+        <option value="Odd">Odd</option>
+        <option value="Even">Even</option>
+      </select>
+    </label>
+
+    <label class="checkbox">
+      <input type="checkbox" name="agreeToTerms" [(ngModel)]="model.agreeToTerms" required />
+      <span>I agree to the enrollment terms.</span>
+    </label>
+
+    <button type="submit" [disabled]="enrollForm.invalid">Submit</button>
+  </form>
+
+  @if (submittedMessage) { <p class="message">{{ submittedMessage }}</p> }
+</section>

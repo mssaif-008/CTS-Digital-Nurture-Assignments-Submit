@@ -1,0 +1,11 @@
+﻿<section class="page profile">
+  <h1>Student Profile</h1>
+  <dl>
+    <div><dt>Name</dt><dd>{{ student.name | uppercase }}</dd></div>
+    <div><dt>Program</dt><dd>{{ student.program }}</dd></div>
+    <div><dt>Email</dt><dd>{{ student.email }}</dd></div>
+    <div><dt>GPA</dt><dd>{{ student.gpa | number: '1.1-2' }}</dd></div>
+    <div><dt>Joined</dt><dd>{{ student.joined | date: 'mediumDate' }}</dd></div>
+    <div><dt>Scholarship</dt><dd>{{ student.scholarship | currency: 'USD' }}</dd></div>
+  </dl>
+</section>

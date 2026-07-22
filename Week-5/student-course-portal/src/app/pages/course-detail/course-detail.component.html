@@ -1,0 +1,12 @@
+﻿<section class="page detail">
+  @if (course$ | async; as course) {
+    <a routerLink="/courses">Back to courses</a>
+    <h1>{{ course.name }}</h1>
+    <p class="code">{{ course.code }} - {{ course.credits }} credits</p>
+    <p>{{ course.description }}</p>
+    <p><strong>Instructor:</strong> {{ course.instructor }}</p>
+  } @else {
+    <h1>Course not found</h1>
+    <a routerLink="/courses">Back to courses</a>
+  }
+</section>

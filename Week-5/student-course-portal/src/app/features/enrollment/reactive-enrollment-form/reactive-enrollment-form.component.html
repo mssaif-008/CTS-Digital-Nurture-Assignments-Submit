@@ -1,0 +1,36 @@
+﻿<section class="page form-page">
+  <h1>Reactive Enrollment Form</h1>
+  <form [formGroup]="enrollForm" (ngSubmit)="onSubmit()" novalidate>
+    <label>
+      <span>Student name</span>
+      <input formControlName="studentName" />
+      @if (enrollForm.controls.studentName.invalid && enrollForm.controls.studentName.touched) { <small>Name must be at least 3 characters.</small> }
+    </label>
+
+    <label>
+      <span>Email</span>
+      <input type="email" formControlName="studentEmail" />
+      @if (enrollForm.controls.studentEmail.invalid && enrollForm.controls.studentEmail.touched) { <small>Enter a valid email address.</small> }
+    </label>
+
+    <label>
+      <span>Course ID</span>
+      <input type="number" formControlName="courseId" />
+    </label>
+
+    <label>
+      <span>Preferred semester</span>
+      <select formControlName="preferredSemester">
+        <option value="Odd">Odd</option>
+        <option value="Even">Even</option>
+      </select>
+    </label>
+
+    <label class="checkbox">
+      <input type="checkbox" formControlName="agreeToTerms" />
+      <span>I agree to the enrollment terms.</span>
+    </label>
+
+    <button type="submit" [disabled]="enrollForm.invalid">Submit</button>
+  </form>
+</section>
